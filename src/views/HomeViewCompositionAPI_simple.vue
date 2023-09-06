@@ -19,7 +19,7 @@
 
 <script setup>
   // script setup: take off some boilerplate code like export default and return
-  import { ref,reactive, computed } from 'vue'
+  import { ref,reactive, computed, watch } from 'vue'
 
   const appTitle = 'My Vue 3 App' //non-reactive data
 
@@ -31,8 +31,13 @@
     title: 'my counter'
   });
 
+  // use getter to grep nested data
+  watch(() => counterData.count, (newValue, oldValue) => {
+    console.log(newValue, oldValue, 'watch')
+    if(newValue == 20) alert('way to go !! you maid it to 20 !!')
+  })
+
   const oddOrEven = computed(() => {
-    console.log(counterData,'computed')
     return counterData.count % 2 === 0 ? 'even' : 'odd'
   });
 
