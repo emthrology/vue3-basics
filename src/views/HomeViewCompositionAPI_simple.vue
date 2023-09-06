@@ -8,6 +8,8 @@
     <button @click="excecute('plus')" class="btn">+</button>
   </div>
 
+  <p>This counter is {{ oddOrEven }} !!</p>
+
   <div class="edit">
     <h4>Edit coutner title:</h4>
     <input v-model="counterData.title" type="text" name="" id="">
@@ -17,7 +19,7 @@
 
 <script setup>
   // script setup: take off some boilerplate code like export default and return
-  import { ref,reactive } from 'vue'
+  import { ref,reactive, computed } from 'vue'
 
   const appTitle = 'My Vue 3 App' //non-reactive data
 
@@ -27,7 +29,12 @@
   const counterData = reactive({ //reactive data
     count: 0,
     title: 'my counter'
-  })
+  });
+
+  const oddOrEven = computed(() => {
+    console.log(counterData,'computed')
+    return counterData.count % 2 === 0 ? 'even' : 'odd'
+  });
 
   const excecute = (operator = null) => {
     if(operator === 'plus') {
