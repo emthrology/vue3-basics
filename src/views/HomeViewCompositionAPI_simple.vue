@@ -18,14 +18,27 @@
 </template>
 
 <script setup>
+  // by this way, keep the code consise by seperating it into different parts
+  /*
+    imports 
+  */
   // script setup: take off some boilerplate code like export default and return
-  import { ref,reactive, computed, watch, onBeforeUpdate, onUpdated } from 'vue'
+  import { ref,reactive, computed, watch, onMounted } from 'vue'
 
+
+  /*
+    app title
+  */
   const appTitle = 'My Vue 3 App' //non-reactive data
 
-  // const counter = ref(0); //ref data
-  // const coutnerTitle = ref('my counter')
+  //mounted hook related to app title
+  onMounted(() => {
+    console.log('do stuff related to App title')
+  })
 
+  /*
+    counter
+  */
   const counterData = reactive({ //reactive data
     count: 0,
     title: 'my counter'
@@ -52,13 +65,11 @@
     }
   }
 
-  onBeforeUpdate(() => {
-    console.log('onBeforeUpdate')
+  //another mounted hook; this time for counter
+  onMounted(() => {
+    console.log('do stuff related to counter')
   })
-  onUpdated(() => {
-    console.log('onUpdated')
-  })
-  
+
 
 </script>
 
