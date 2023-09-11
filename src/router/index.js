@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeViewCompositionAPI_simple from '../views/HomeViewCompositionAPI_simple.vue'
+import HomeViewCompositionAPI from '../views/HomeViewCompositionAPI.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeViewCompositionAPI_simple
+      component: HomeViewCompositionAPI
     },
     {
       path: '/about',
