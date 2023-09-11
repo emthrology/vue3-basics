@@ -19,7 +19,7 @@
 
 <script setup>
   // script setup: take off some boilerplate code like export default and return
-  import { ref,reactive, computed, watch } from 'vue'
+  import { ref,reactive, computed, watch, onBeforeMount, onMounted, onBeforeUnmount, onUnmounted, onActivated, onDeactivated } from 'vue'
 
   const appTitle = 'My Vue 3 App' //non-reactive data
 
@@ -51,6 +51,28 @@
       counterData.count--
     }
   }
+ 
+  //no onCreated hoocks because it's not needed anymore (all of this is done after the component is created)
+  onBeforeMount(() => {
+    console.log('onBeforeMount')
+  });
+  onMounted(() => {
+    console.log('onMounted')
+  });
+  onBeforeUnmount(() => {
+    console.log('onBeforeUnmount')
+  });
+  onUnmounted(() => {
+    console.log('onUnmounted')
+  });
+
+  //used with <keep-alive> component
+  onActivated(() => {
+    console.log('onActivated')
+  });
+  onDeactivated(() => {
+    console.log('onDeactivated')
+  });
 </script>
 
 <style>
