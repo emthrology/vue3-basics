@@ -1,16 +1,24 @@
-<script setup>
-</script>
-
 <template>
   <nav>
     <RouterLink to="/">Home</RouterLink>
+    <RouterLink to="/modals">Modals</RouterLink>
     <RouterLink to="/posts">Posts</RouterLink>
   </nav>
 
   <RouterView />
 </template>
 
-<style scoped>
+<style>
+@import '@/assets/base.css';
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  font-weight: normal;
+}
+
 header {
   line-height: 1.5;
   max-height: 100vh;
@@ -19,6 +27,19 @@ header {
 .logo {
   display: block;
   margin: 0 auto 2rem;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
 }
 
 nav {
@@ -45,5 +66,4 @@ nav a {
 nav a:first-of-type {
   border: 0;
 }
-
 </style>
