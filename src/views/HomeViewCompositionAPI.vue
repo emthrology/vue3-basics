@@ -23,7 +23,7 @@
     imports 
   */
   // script setup: take off some boilerplate code like export default and return
-  import { ref,reactive, computed, watch, onMounted } from 'vue'
+  import { nextTick ,ref,reactive, computed, watch, onMounted } from 'vue'
 
 
   /*
@@ -60,7 +60,11 @@
   const excecute = (operator = null) => {
     if(operator === 'plus') {
       // counter.value++
-      counterData.count++
+      nextTick(() => {
+        console.log('nextTick')
+        counterData.count++
+      })
+      
     }
     if(operator === 'minus') {
       // counter.value--
