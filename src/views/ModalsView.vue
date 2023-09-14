@@ -1,24 +1,33 @@
-<template >
+<template>
   <div class="modals">
     <h1>Modals</h1>
-    <button @click="showModal = true">showModal</button>
-    <!-- teleport: move the tag to the place where you want to  -->
-    <!-- check it out with browser dev tools -->
-    <teleport to=".modals-container"> 
-      <div class="modal" v-if="showModal">
-        <h1>this is a modal</h1>
-        <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ea, tenetur eaque ipsam labore enim placeat amet exercitationem sint magni! Hic consequuntur consequatur obcaecati, tempora, repellendus unde ut ipsum, sint dolor architecto sapiente libero eos a reprehenderit numquam animi natus suscipit. Nemo voluptas obcaecati sunt ullam at quasi vel cum!</p>
-        <button @click="showModal = false">HideModal</button>
+    <button @click="showModal = true">Show modal</button>
+    <teleport to=".modals-container">
+      <div
+        v-if="showModal"
+        class="modal"
+      >
+        <h1>This is a modal</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae ipsa laboriosam vero natus ut rerum quaerat, saepe praesentium tempore et hic velit odio nemo minus labore quam ullam quod architecto?</p>
+        <button @click="showModal = false">Hide modal</button>
       </div>
     </teleport>
   </div>
 </template>
+
 <script setup>
-  import {ref} from 'vue'
-  /*
-    modals
-  */
+/*
+  imports
+*/
+
+  import { ref } from 'vue'
+
+/*
+  modals
+*/
+
   const showModal = ref(false)
+
 </script>
 <style>
   .modal {
@@ -26,11 +35,15 @@
     padding: 10px;
     color: black;
 
-    position: apsolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index:999;
-  }
+<style>
+.modal {
+  background: beige;
+  padding: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
 </style>
