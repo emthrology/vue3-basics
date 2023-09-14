@@ -2,8 +2,10 @@
   <div class="modals">
     <h1>Modals</h1>
     <button @click="showModal = true">Show modal</button>
-    <Modal v-if="showModal" >
-      <template v-slot:title>This is a title by named slot</template>
+    <Modal 
+      v-if="showModal"
+      title="This is a title by props"
+    >
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae ipsa laboriosam vero natus ut rerum quaerat, saepe praesentium tempore et hic velit odio nemo minus labore quam ullam quod architecto?</p>
     </Modal>
   </div>
