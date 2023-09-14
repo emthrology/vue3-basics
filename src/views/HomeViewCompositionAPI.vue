@@ -1,6 +1,6 @@
 <template>
  <div class="home">
-  <h2>{{ appTitle }}</h2>
+  <h2 ref="appTitleRef">{{ appTitle }}</h2>
   <h3>{{ counterData.title }}:</h3>
   <div>
     <button @click="excecute('minus')" class="btn">-</button>
@@ -31,9 +31,12 @@
   */
   const appTitle = 'My Vue 3 App' //non-reactive data
 
+  const appTitleRef = ref(null) 
+
   //mounted hook related to app title
   onMounted(() => {
     console.log('do stuff related to App title')
+    console.log(`${appTitleRef.value.offsetWidth} px`)
   })
 
   /*
