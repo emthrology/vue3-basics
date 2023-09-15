@@ -5,6 +5,7 @@
     <Modal 
       v-if="showModal"
       title="This is a title by props"
+      @hideModal="showModal = false"
     >
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae ipsa laboriosam vero natus ut rerum quaerat, saepe praesentium tempore et hic velit odio nemo minus labore quam ullam quod architecto?</p>
     </Modal>

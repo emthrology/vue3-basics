@@ -5,7 +5,7 @@
   >
     <h1>{{ title }}</h1>
     <slot />
-    <button >Hide modal</button>
+    <button @click="$emit('hideModal')">Hide modal</button>
   </div>
 </teleport>
 </template>
@@ -17,6 +17,8 @@
       default:'no title specified'
     }
   })
+
+  const emit = defineEmits(['hideModal'])
 
 </script>
 
